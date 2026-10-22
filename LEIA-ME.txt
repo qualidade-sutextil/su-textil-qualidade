@@ -1,0 +1,23 @@
+# SU Têxtil — PWA para GitHub Pages
+
+## Arquivos
+- `index.html`: versão V29 com os metadados PWA e registro do service worker.
+- `manifest.webmanifest`: nome, ícone e comportamento de instalação.
+- `service-worker.js`: cache da interface local e fallback básico de abertura offline.
+- `icons/`: ícones do aplicativo Android.
+
+## Publicar no repositório
+1. Faça uma cópia de segurança do repositório atual antes de substituir arquivos.
+2. No repositório `qualidade-sutextil/su-textil-qualidade`, envie `index.html`, `manifest.webmanifest`, `service-worker.js` e a pasta `icons` para a raiz do mesmo diretório publicado pelo GitHub Pages.
+3. Confirme em **Settings → Pages** que a publicação usa a branch correta e a pasta onde está o `index.html` (normalmente `main` e `/(root)`).
+4. Aguarde a publicação e abra o endereço do site em `https://...` (HTTPS é necessário para instalação/service worker).
+5. No Android, abra o site no Chrome, entre no sistema e use o menu ⋮ → **Instalar app** ou **Adicionar à tela inicial**.
+
+## Preservação de dados
+O HTML foi derivado do arquivo V29_CONTROLE_CORES. A lógica de login, os perfis `quality`/`director`, o uso de `app_state` e a configuração Supabase existentes no HTML foram mantidos; não foram criadas nem alteradas tabelas do banco.
+
+## Importante
+- O service worker armazena apenas a interface/arquivos locais; não armazena chamadas de autenticação ou dados do Supabase.
+- Para login, sincronização e gravação de dados, o celular precisa de internet.
+- Não cole uma chave `service_role` no HTML. Use apenas a chave pública `anon`/`publishable` já prevista no sistema.
+- Após publicar, teste login com os dois perfis, carregar registros, salvar uma alteração e confirmar o dado em outro navegador antes de usar como registro oficial.
